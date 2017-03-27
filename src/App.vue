@@ -1,4 +1,3 @@
-<!--html模板,template语法-->
 <template>
   <div>
     <v-header :seller="seller"></v-header>
@@ -42,12 +41,12 @@
     }
   }
 </script>
-
+//需要告诉ide和vue-loader下面的css样式使用stylus来构建的
 <style lang="stylus" rel="stylesheet/stylus">
   @import './common/stylus/mixin.styl'
 
   .tab
-    display: flex
+    display: flex // 使用flex布局
     width: 100%
     height: 40px
     line-height: 40px
@@ -55,7 +54,7 @@
     .tab-item
       flex: 1
       text-align: center
-      & > a
+      & > a //stylus语法&代表父级
         display: block
         text-decoration: none
         font-size: 14px
