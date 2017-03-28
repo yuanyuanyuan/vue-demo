@@ -98,17 +98,17 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "../../common/stylus/mixin.styl"
+  @import "../../common/stylus/mixin.styl" //导入minxin
 
   .header
-    position relative
+    position relative //这里的相对定位是为了让下面的绝对定位做参考
     overflow: hidden
     color: #ffffff
     background: rgba(7, 17, 27, 0.5)
     .content-wrapper
       padding: 24px 12px 18px 24px
-      font-size: 0
-      position: relative
+      font-size: 0 //这里为0是为了去掉行内元素的间隙,这个可以继承,所以需要在子孙元素里面再单独设置font-size
+      position: relative //这里的相对定位是为了让下面的绝对定位做参考
       .avatar
         display: inline-block
         vertical-align: top
@@ -124,7 +124,7 @@
             vertical-align: top
             width: 30px
             height: 18px
-            bg-image('brand')
+            bg-image('brand') //这里使用了一个图片的mixin
             background-size: 30px 18px
             background-repeat: no-repeat
           .name
@@ -145,8 +145,8 @@
             margin-right: 4px
             background-size: 12px 12px
             background-repeat: no-repeat
-            &.decrease
-              bg-image('decrease_1')
+            &.decrease //这里就是配合classMap进行图片切换的
+              bg-image('decrease_1') //这是图片的mixin,在mixin.styl里面可以看到
             &.discount
               bg-image('discount_1')
             &.guarantee
@@ -169,20 +169,20 @@
         background: rgba(0, 0, 0, 0.2)
         text-align: center
         .count
-          vertical-align: top
+          vertical-align: top //考虑到行内元素的不一致的对齐,需要大量使用line-height和vertical-align
           font-size: 10px
         .icon-keyboard_arrow_right
           margin-left: 2px
           line-height: 24px
           font-size: 10px
     .bulletin-wrapper
-      position: relative
+      position: relative //做相对定位,给icon-keyboard_arrow_right绝对定位做参照
       height: 28px
       line-height: 28px
       padding: 0 22px 0 12px
       white-space: nowrap
       overflow: hidden
-      text-overflow: ellipsis
+      text-overflow: ellipsis //这里是字数太长的省略处理
       background: rgba(7, 17, 27, 0.2)
       .bulletin-title
         display: inline-block
@@ -202,23 +202,23 @@
         font-size: 10px
         right: 12px
         top: 8px
-    .background
-      position absolute
-      top: 0
+    .background //这里使用的是图片做背景,所以需要做下面这些处理
+      position absolute //背景图片需要绝对定位
+      top: 0 //设置位置
       left: 0
-      width: 100%
+      width: 100% //设置大小
       height: 100%
-      z-index: -1
-      filter: blur(10px)
+      z-index: -1 //将背景图片设置里层
+      filter: blur(10px) //背景图片虚化
     .detail
-      position: fixed
-      z-index: 100
+      position: fixed //弹出层,所以用fixed
+      z-index: 100 //需要设置z-index保持一定的高度
       top: 0
       left: 0
       width: 100%
       height: 100%
-      overflow: auto
-      opacity: 1
+      overflow: auto //加overflow hidden来把多余的背景阴影去掉
+      opacity: 1 //这是动画设置
       background: rgba(7, 17, 27, 0.8)
       &.fade-enter-active, &.fade-leave-active
         transition: all 0.5s
@@ -227,10 +227,10 @@
         background: rgba(7, 17, 27, 0)
       .detail-wrapper
         width: 100%
-        min-height: 100%
+        min-height: 100% //因为不知道有多少内容,所以用min-height
         .detail-main
           margin-top: 64px
-          padding-bottom: 64px
+          padding-bottom: 64px //预留下面close按钮的位置,所以下内边距顶起
           .name
             line-height: 16px
             text-align: center
@@ -241,14 +241,14 @@
             padding: 2px 0
             text-align center
           .title
-            display: flex
+            display: flex //使用flex布局等分详情页优惠界面
             width: 80%
             margin: 28px auto 24px auto
             .line
-              flex: 1
-              position: relative
+              flex: 1 //使用1的比例的flex块
+              position: relative //这里使用相对布局加top对齐,可以也可以margin-bottom
               top: -6px
-              border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+              border-bottom: 1px solid rgba(255, 255, 255, 0.2) //使用border生成线,因为使用的是div
             .text
               padding: 0 12px
               font-size: 14px
@@ -294,7 +294,7 @@
         position: relative
         width: 32px
         height: 32px
-        margin: -64px auto 0 auto
+        margin: -64px auto 0 auto //之前预留了位置,现在需要填充回去
         clear: both
         font-size: 32px
 </style>
