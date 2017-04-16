@@ -12,7 +12,7 @@
         <router-link to="/seller">商家</router-link>
       </div>
     </div>
-    <router-view></router-view>
+    <router-view :seller="seller"></router-view>
   </div>
 </template>
 
@@ -41,7 +41,7 @@
     }
   }
 </script>
-//需要告诉ide和vue-loader下面的css样式使用stylus来构建的
+
 <style lang="stylus" rel="stylesheet/stylus">
   @import './common/stylus/mixin.styl'
 
