@@ -1,6 +1,6 @@
 <template>
   <div class="star" :class="starType">
-    <span v-for="itemClass in itemClasses" :class="itemClass" class="star-item"></span>
+    <span v-for="itemClass in itemClasses" :class="itemClass" class="star-item" key="index"></span>
   </div>
 </template>
 
@@ -48,6 +48,7 @@
   @import "../../common/stylus/mixin.styl"
 
   .star
+    font-size: 0
     .star-item
       display: inline-block
       background-repeat: no-repeat
@@ -71,27 +72,27 @@
         height: 15px
         margin-right: 6px
         background-size: 15px 15px
-      &:last-child
-        margin-right: 0
-      &.on
-        bg-image('star36_on')
-      &.half
-        bg-image('star36_half')
-      &.off
-        bg-image('star36_off')
+        &:last-child
+          margin-right: 0
+        &.on
+          bg-image('star36_on')
+        &.half
+          bg-image('star36_half')
+        &.off
+          bg-image('star36_off')
     &.star-24
       .star-item
         width: 10px
         height: 10px
         margin-right: 3px
         background-size: 10px 10px
-      &:last-child
-        margin-right: 0
-      &.on
-        bg-image('star24_on')
-      &.half
-        bg-image('star24_half')
-      &.off
-        bg-image('star24_off')
+        &:last-child
+          margin-right: 0
+        &.on
+          bg-image('star24_on')
+        &.half
+          bg-image('star24_half')
+        &.off
+          bg-image('star24_off')
 </style>
 

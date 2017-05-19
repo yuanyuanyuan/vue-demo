@@ -98,7 +98,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "../../common/stylus/mixin.styl" //导入minxin
+  @import "../../common/stylus/mixin.styl" //导入mixin
 
   .header
     position relative //这里的相对定位是为了让下面的绝对定位做参考
